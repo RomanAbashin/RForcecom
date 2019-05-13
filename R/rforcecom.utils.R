@@ -51,9 +51,8 @@ query_parser <- function(xml){
     map_df(function(x){
       # capture any xmlToList grumblings about Namespace prefix
       invisible(capture.output(x_vals <- unlist(xmlToList2(as.character(x)))))
-      return(as.data.frame(t(x_vals), stringsAsFactors=FALSE))
-    }) %>% 
-    as.data.frame(stringsAsFactors=FALSE)
+      return(dplyr::as_tibble(t(x_vals)))
+    })
   
   return(dat)
 }
