@@ -53,7 +53,7 @@ query_parser <- function(xml){
       invisible(capture.output(x_vals <- unlist(xmlToList2(as.character(x)))))
       return(as.data.frame(t(x_vals), stringsAsFactors=FALSE))
     }) %>% 
-    as.data.frame()
+    as.data.frame(stringsAsFactors=FALSE)
   
   return(dat)
 }
